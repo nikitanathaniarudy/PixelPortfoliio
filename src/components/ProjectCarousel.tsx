@@ -3,13 +3,17 @@ import FlipCard from './FlipCard';
 import styles from './ProjectCarousel.module.css';
 import researchPaperPdf from '../assets/Laporan_Flash_Sale_Discount_Optimizer_Model_1757534544.pdf';
 import ninjaVideo from '../assets/ninjavsdragon.mov';
+import aegisImg from '../assets/aegis_path.png';
+import neuroSentryImg from '../assets/neuro_sentry.png';
+import flashSaleImg from '../assets/flash_sale.png';
+import logifyImg from '../assets/logify_pages.JPG';
 
 const projects = [
   {
     id: 1,
     title: 'AegisPath',
     description: 'A No-Bump, Energy-Efficient Vacuum for Elderly Fall Prevention',
-    imageSrc: 'src/assets/aegis_path.png',
+    imageSrc: aegisImg,
     skills: ['Python', 'ARKit', 'Swift', 'a*', 'GPU-acceleration', 'Machine Learning', 'Computer Vision', 'Xcode', 'YOLO'],
     githubUrl: 'https://github.com/Raynard2/smart-vacuum',
     details: (
@@ -42,7 +46,7 @@ const projects = [
     id: 3,
     title: 'Neuro-Sentry',
     description: 'Neuro-Sentry uses your phone’s camera and microphone to detect warning signs in real time, analyzing facial mesh data, speech, and vitals to deliver instant AI-driven acute stroke risk alerts.',
-    imageSrc: 'src/assets/neuro_sentry.png',
+    imageSrc: neuroSentryImg,
     skills: ['GeminiAPI', 'React', 'Swift', 'Presage'],
     githubUrl: 'https://github.com/nikitanathaniarudy/Neuro_Sentry',
     details: (
@@ -75,7 +79,7 @@ const projects = [
     id: 2,
     title: 'Flash Sale Discount Optimizer Model',
     description: 'Developed a machine learning model to optimize discount pricing during flash sales, using real-world e-commerce data.',
-    imageSrc: 'src/assets/flash_sale.png',
+    imageSrc: flashSaleImg,
     skills: ['XGBoost', 'Pandas', 'NumPy', 'Scikit-learn', 'SHAP', 'Matplotlib', 'Simulation Modeling', 'Pandas', 'Data Preprocessing'],
     githubUrl: 'https://github.com',
     researchPaperUrl: researchPaperPdf,
@@ -132,7 +136,7 @@ const projects = [
     id: 5,
     title: 'Logify',
     description: 'An AI journal that analyzes your day and curates a mood-balancing Spotify soundtrack',
-    imageSrc: 'src/assets/logify_pages.jpg',
+    imageSrc: logifyImg,
     skills: ['HTML', 'CSS', 'JavaScript', 'Netlify', 'OpenAI API', 'Spotify API'],
     githubUrl: 'https://github.com/takatoshilee/logify',
     details: (

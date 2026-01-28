@@ -1,5 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css';
+import githubIcon from '../assets/github.png';
+import linkedinIcon from '../assets/linkedin.png';
+import instagramIcon from '../assets/instagram.png';
+import youtubeIcon from '../assets/youtube.png';
 
 const Header: React.FC = () => {
   return (
@@ -37,18 +41,18 @@ const Header: React.FC = () => {
       
       <div className={styles.socials}>
         <a href="#" className={styles.socialIcon} title="GitHub">
-<img src="src/assets/github.png" alt="GitHub" width="24" height="24" />
+            <img src={githubIcon} alt="GitHub" width="24" height="24" />
         </a>
         <a href="#" className={styles.socialIcon} title="LinkedIn">
-          <img src="src/assets/linkedin.png" alt="LinkedIn" width="24" height="24" />
+            <img src={linkedinIcon} alt="LinkedIn" width="24" height="24" />
         </a>
         <a href="#" className={styles.socialIcon} title="Instagram">
-             <img src="src/assets/instagram.png" alt="Instagram" width="20" height="20" />
+             <img src={instagramIcon} alt="Instagram" width="20" height="20" />
         </a>
-     <a href="#" className={styles.socialIcon} title="YouTube">
-  {/* Increased to 32 to visually match the 24px square icons */}
-  <img src="src/assets/youtube.png" alt="YouTube" width="32" height="32" />
-</a>
+        <a href="#" className={styles.socialIcon} title="YouTube">
+            {/* Increased to 32 to visually match the 24px square icons */}
+            <img src={youtubeIcon} alt="YouTube" width="32" height="32" />
+        </a>
       </div>
     </header>
   );

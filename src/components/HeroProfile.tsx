@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './HeroProfile.module.css';
+import profilePic from '../assets/profile_picture.jpeg';
 
 const HeroProfile: React.FC = () => {
     const [showBubble, setShowBubble] = useState(false);
@@ -23,9 +24,8 @@ const HeroProfile: React.FC = () => {
         onClick={handleProfileClick} 
         style={{ cursor: 'pointer' }}
       >
-        <span className={styles.tag}>Me</span>
         <span className={styles.wave}>👋</span>
-        <img src="src/assets/profile_picture.jpeg" alt="Nikita" className={styles.image} />
+        <img src={profilePic} alt="Nikita" className={styles.image} />
       </div>
       
       {showBubble && (
