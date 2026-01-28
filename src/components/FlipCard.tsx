@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from './FlipCard.module.css';
-import hfLogo from '../assets/hf-logo.png';
 
 interface FlipCardProps {
   imageSrc?: string;
+
   title: string;
   description: string;
   skills?: string[];
@@ -68,12 +68,12 @@ const FlipCard: React.FC<FlipCardProps> = ({ imageSrc, title, description, skill
                 <div className={styles.buttonRow}>
                     {githubUrl && (
                         <a href={githubUrl} target="_blank" rel="noopener noreferrer" className={styles.iconButton} title="GitHub">
-                            <img src="/assets/github.png" alt="GitHub" />
+                            <img src="/assets/github.png" alt="GitHub" style={{ filter: 'invert(1)' }} />
                         </a>
                     )}
                     {huggingFaceUrl && (
                         <a href={huggingFaceUrl} target="_blank" rel="noopener noreferrer" className={styles.iconButton} title="Hugging Face">
-                            <img src={hfLogo} alt="Hugging Face" />
+                            <img src="/assets/hf-logo.png" alt="Hugging Face" />
                         </a>
                     )}
                     {researchPaperUrl && (
