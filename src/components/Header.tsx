@@ -36,16 +36,16 @@ const Header: React.FC = () => {
       <h1 className={styles.title} data-text="Nikita Rudy">Nikita Rudy</h1>
       
       <div className={styles.socials}>
-        <a href="#" className={styles.socialIcon} title="GitHub">
+        <a href="https://github.com/nikitanathaniarudy" className={styles.socialIcon} title="GitHub">
             <img src="/assets/github.png" alt="GitHub" width="24" height="24" />
         </a>
-        <a href="#" className={styles.socialIcon} title="LinkedIn">
+        <a href="https://www.linkedin.com/in/nikita-nathania-rudy-60177925a/" className={styles.socialIcon} title="LinkedIn">
             <img src="/assets/linkedin.png" alt="LinkedIn" width="24" height="24" />
         </a>
-        <a href="#" className={styles.socialIcon} title="Instagram">
+        <a href="https://www.instagram.com/nikitanathaniarudy/?hl=en" className={styles.socialIcon} title="Instagram">
              <img src="/assets/instagram.png" alt="Instagram" width="20" height="20" />
         </a>
-        <a href="#" className={styles.socialIcon} title="YouTube">
+        <a href="https://www.youtube.com/@LifeWithOcoi" className={styles.socialIcon} title="YouTube">
             {/* Increased to 32 to visually match the 24px square icons */}
             <img src="/assets/youtube.png" alt="YouTube" width="32" height="32" />
         </a>
