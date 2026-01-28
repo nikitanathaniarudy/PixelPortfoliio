@@ -38,7 +38,7 @@ const Terminal: React.FC = () => {
         setTimeout(() => {
             setCatMessage("Pat me"); 
             setShowCatBubble(false);
-        }, 3000);
+        }, 5000);
     };
   
     return (

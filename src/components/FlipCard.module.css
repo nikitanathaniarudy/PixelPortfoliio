@@ -23,6 +23,8 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    /* Ensure only visible face captures events */
+    pointer-events: none;
     border: 4px solid #000;
     background: #1a1a2e;
     /* Dark fallback */
@@ -37,10 +39,24 @@
 .front {
     background: #2a2a40;
     /* Dark theme card */
+    /* Dark theme card */
     border: 4px solid #000;
     align-items: stretch;
     justify-content: flex-start;
+    /* Re-enable pointer events when this face is visible (default state) */
+    pointer-events: auto;
 }
+
+/* When card is flipped, front pointer events should be none (inherited from .face) 
+   but since .front is specific... wait. 
+   Better logic: 
+   .card .front { pointer-events: auto; }
+   .card.flipped .front { pointer-events: none; }
+   .card .back { pointer-events: none; }
+   .card.flipped .back { pointer-events: auto; }
+*/
+
+/* Resetting previous chunks to implement simpler logic below */
 
 .back {
     background: #3a3a50;
@@ -49,6 +65,23 @@
     text-align: center;
     color: #fff;
     border: 4px solid #000;
+}
+
+/* Dynamic Pointer Events to prevent scroll trapping */
+.card .front {
+    pointer-events: auto;
+}
+
+.card.flipped .front {
+    pointer-events: none;
+}
+
+.card .back {
+    pointer-events: none;
+}
+
+.card.flipped .back {
+    pointer-events: auto;
 }
 
 .imageContainer {
