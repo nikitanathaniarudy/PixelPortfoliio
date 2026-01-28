@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  --font-pixel: 'Press Start 2P', cursive;
+  --font-terminal: 'VT323', monospace;
+  
+  --bg-color: #0d0d1e;
+  --text-color: #ffffff;
+  --accent-pink: #ff7ac6;
+  --accent-cyan: #8be9fd;
+  --accent-yellow: #f1fa8c;
+  --card-bg: rgba(0, 0, 0, 0.7);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-pixel);
+  font-size: 12px; /* Base size for pixel font */
+  line-height: 1.5;
+  -webkit-font-smoothing: none; /* Keep fonts crisp */
+  image-rendering: pixelated; /* Ensure images stay pixelated */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,388 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    /* Compact padding */
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.navButton {
+    background: #a3a7c2;
+    border: 2px solid #000;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-family: var(--font-pixel);
+    font-size: 0.8rem;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.1s, background 0.2s;
+    box-shadow: 2px 2px 0px #000;
+}
+
+.navButton:hover {
+    transform: translateY(-2px);
+    background: #fff;
+}
+
+.navButton:active {
+    transform: translateY(0);
+    box-shadow: 0px 0px 0px #000;
+    box-shadow: 0px 0px 0px #000;
+}
+
+.profileContainer {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.profilePic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    image-rendering: pixelated;
+    /* Keeps it sharp/retro */
+    transition: transform 0.3s ease;
+}
+
+.profilePic:hover {
+    transform: scale(1.05) rotate(2deg);
+    border-color: var(--accent-cyan);
+}
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 0 #000;
+    position: relative;
+    color: #fff;
+    /* Glitch Effect Base */
+}
+
+/* Glitch Layers */
+.title::before,
+.title::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #282a36;
+    /* Match bg to hide original */
+}
+
+.title::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.title::after {
+    left: -2px;
+    text-shadow: -2px 0 #00fff9;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+/* Keyframes for random slice effect */
+@keyframes glitch-anim {
+    0% {
+        clip: rect(38px, 9999px, 81px, 0);
+        transform: skew(0.85deg);
+    }
+
+    5% {
+        clip: rect(61px, 9999px, 86px, 0);
+        transform: skew(0.4deg);
+    }
+
+    10% {
+        clip: rect(64px, 9999px, 12px, 0);
+        transform: skew(0.48deg);
+    }
+
+    15% {
+        clip: rect(61px, 9999px, 20px, 0);
+        transform: skew(0.96deg);
+    }
+
+    20% {
+        clip: rect(98px, 9999px, 59px, 0);
+        transform: skew(0.04deg);
+    }
+
+    25% {
+        clip: rect(9px, 9999px, 49px, 0);
+        transform: skew(0.72deg);
+    }
+
+    30% {
+        clip: rect(89px, 9999px, 82px, 0);
+        transform: skew(0.94deg);
+    }
+
+    35% {
+        clip: rect(58px, 9999px, 34px, 0);
+        transform: skew(0.49deg);
+    }
+
+    40% {
+        clip: rect(32px, 9999px, 94px, 0);
+        transform: skew(0.2deg);
+    }
+
+    45% {
+        clip: rect(36px, 9999px, 32px, 0);
+        transform: skew(0.3deg);
+    }
+
+    50% {
+        clip: rect(81px, 9999px, 20px, 0);
+        transform: skew(0.53deg);
+    }
+
+    55% {
+        clip: rect(59px, 9999px, 83px, 0);
+        transform: skew(0.39deg);
+    }
+
+    60% {
+        clip: rect(46px, 9999px, 5px, 0);
+        transform: skew(0.18deg);
+    }
+
+    65% {
+        clip: rect(88px, 9999px, 88px, 0);
+        transform: skew(0.87deg);
+    }
+
+    70% {
+        clip: rect(32px, 9999px, 14px, 0);
+        transform: skew(0.75deg);
+    }
+
+    75% {
+        clip: rect(10px, 9999px, 78px, 0);
+        transform: skew(0.19deg);
+    }
+
+    80% {
+        clip: rect(66px, 9999px, 19px, 0);
+        transform: skew(0.34deg);
+    }
+
+    85% {
+        clip: rect(48px, 9999px, 34px, 0);
+        transform: skew(0.56deg);
+    }
+
+    90% {
+        clip: rect(36px, 9999px, 59px, 0);
+        transform: skew(0.32deg);
+    }
+
+    95% {
+        clip: rect(81px, 9999px, 32px, 0);
+        transform: skew(0.66deg);
+    }
+
+    100% {
+        clip: rect(69px, 9999px, 28px, 0);
+        transform: skew(0.68deg);
+    }
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 #000;
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(10px, 9999px, 38px, 0);
+        transform: skew(0.02deg);
+    }
+
+    5% {
+        clip: rect(74px, 9999px, 91px, 0);
+        transform: skew(0.9deg);
+    }
+
+    10% {
+        clip: rect(74px, 9999px, 18px, 0);
+        transform: skew(0.95deg);
+    }
+
+    15% {
+        clip: rect(6px, 9999px, 37px, 0);
+        transform: skew(0.98deg);
+    }
+
+    20% {
+        clip: rect(46px, 9999px, 5px, 0);
+        transform: skew(0.76deg);
+    }
+
+    25% {
+        clip: rect(80px, 9999px, 8px, 0);
+        transform: skew(0.6deg);
+    }
+
+    30% {
+        clip: rect(2px, 9999px, 70px, 0);
+        transform: skew(0.58deg);
+    }
+
+    35% {
+        clip: rect(45px, 9999px, 70px, 0);
+        transform: skew(0.08deg);
+    }
+
+    40% {
+        clip: rect(35px, 9999px, 50px, 0);
+        transform: skew(0.81deg);
+    }
+
+    45% {
+        clip: rect(62px, 9999px, 2px, 0);
+        transform: skew(0.04deg);
+    }
+
+    50% {
+        clip: rect(37px, 9999px, 4px, 0);
+        transform: skew(0.11deg);
+    }
+
+    55% {
+        clip: rect(44px, 9999px, 83px, 0);
+        transform: skew(0.58deg);
+    }
+
+    60% {
+        clip: rect(56px, 9999px, 49px, 0);
+        transform: skew(0.94deg);
+    }
+
+    65% {
+        clip: rect(5px, 9999px, 88px, 0);
+        transform: skew(0.54deg);
+    }
+
+    70% {
+        clip: rect(7px, 9999px, 71px, 0);
+        transform: skew(0.77deg);
+    }
+
+    75% {
+        clip: rect(69px, 9999px, 90px, 0);
+        transform: skew(0.35deg);
+    }
+
+    80% {
+        clip: rect(98px, 9999px, 8px, 0);
+        transform: skew(0.4deg);
+    }
+
+    85% {
+        clip: rect(48px, 9999px, 59px, 0);
+        transform: skew(0.55deg);
+    }
+
+    90% {
+        clip: rect(81px, 9999px, 89px, 0);
+        transform: skew(0.99deg);
+    }
+
+    95% {
+        clip: rect(40px, 9999px, 36px, 0);
+        transform: skew(0.32deg);
+    }
+
+    100% {
+        clip: rect(21px, 9999px, 59px, 0);
+        transform: skew(0.07deg);
+    }
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Header.module.css */
+
+.socialIcon {
+    /* REMOVED: width, height, min-width, min-height */
+    /* This allows the container to grow to fit whatever size image you put inside */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: transparent;
+}
+
+.socialIcon img {
+    /* REMOVED: width: 100%; height: 100%; */
+    /* This allows your HTML attributes (width="50") to actually work */
+    display: block; 
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.socialIcon:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .profilePic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .nav {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navButton {
+        padding: 0.4rem 1rem;
+        font-size: 0.7rem;
+    }
+
+    .socialIcon {
+        width: 32px;
+        height: 32px;
+        min-width: 32px;
+        min-height: 32px;
+    }
+}

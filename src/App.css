@@ -1,0 +1,77 @@
+/* Intentionally empty to satisfy import */
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    color: #6272a4;
+    font-family: var(--font-pixel);
+    font-size: 0.8rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom Cursor */
+body {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" fill="black" stroke="white" stroke-width="2"><path d="M5.5 3.21l10.89 11.23-4.83.6 3.65 8.16-2.55 1.15-3.6-8.15-4.22 4.22V3.21z"/></svg>') 0 0, auto;
+}
+
+a,
+button,
+.clickable {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" fill="red" stroke="white" stroke-width="2"><path d="M10.82 10.5l-5.69 5.69L2 13.06l16.12-9.19-2.02 18.06-4.58-6.14 4.93-4.93-5.63-.36z"/></svg>') 0 0, pointer;
+}
+
+/* Global Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* CRT Scanline Overlay */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0) 50%,
+            rgba(0, 0, 0, 0.1) 50%,
+            rgba(0, 0, 0, 0.1));
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    animation: scrollScanlines 0.5s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes scrollScanlines {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 4px;
+    }
+}
