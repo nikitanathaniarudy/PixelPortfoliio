@@ -7,7 +7,7 @@ const Terminal: React.FC = () => {
     const [showContent, setShowContent] = useState(false);
     const [catMessage, setCatMessage] = useState("Pat me");
 
-    const fullCommand = 'cat candidate_profile.json';
+    const fullCommand = 'cat about.txt';
 
     const messages = [
         "im sleepy... 💤", 
