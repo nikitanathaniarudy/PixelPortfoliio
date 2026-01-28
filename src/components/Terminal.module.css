@@ -125,16 +125,27 @@
 
 @media (max-width: 768px) {
     .terminalContainer {
-        width: 100%;
+        width: 95%;
+        /* Match other components */
         margin: 1rem auto;
     }
 
     .terminalBody {
-        padding: 1rem;
-        font-size: 1rem;
+        padding: 0.8rem;
+        font-size: 0.8rem;
+        /* Small retro font */
+    }
+
+    .sectionTitle {
+        font-size: 0.9rem;
+    }
+
+    .list {
+        padding-left: 0.5rem;
     }
 
     .cat {
-        width: 100px;
+        width: 120px;
+        /* Slightly bigger for visibility */
     }
 }

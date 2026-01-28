@@ -178,7 +178,7 @@
 
 @media (max-width: 768px) {
     .questBoard {
-        width: 100%;
+        width: 95%;
         padding: 1rem;
         margin: 1rem auto;
     }
@@ -198,6 +198,16 @@
     }
 
     .company {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        /* Better readability */
+    }
+
+    .questDetails {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+
+    .questItem {
+        padding: 0.5rem;
     }
 }

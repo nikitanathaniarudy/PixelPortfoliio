@@ -168,6 +168,20 @@ const ProjectCarousel: React.FC = () => {
     setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    handleResize();
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const getSlideStyle = (index: number) => {
     // Calculate distance from active index, handling wrap-around
     const total = projects.length;
@@ -176,6 +190,9 @@ const ProjectCarousel: React.FC = () => {
     // Adjust distance for shortest path (wrap around)
     if (dist > total / 2) dist -= total;
     if (dist < -total / 2) dist += total;
+
+    // Use smaller offset for mobile
+    const xOffset = isMobile ? '120px' : '350px'; 
 
     // Only show 3 cards (Active, Left, Right) - hide others or fade them out
     if (Math.abs(dist) > 1) {
@@ -191,7 +208,7 @@ const ProjectCarousel: React.FC = () => {
         // Active Card
         return { 
             opacity: 1, 
-            transform: 'translateX(0) scale(1.1)', // Bigger scale
+            transform: `translateX(0) scale(${isMobile ? 1 : 1.1})`, // Less scaling on mobile
             zIndex: 10,
             filter: 'none',
             cursor: 'pointer'
@@ -200,7 +217,7 @@ const ProjectCarousel: React.FC = () => {
         // Left Card
         return { 
             opacity: 0.6, 
-            transform: 'translateX(-350px) scale(0.8) rotateY(15deg)', // Slide left, shrink, rotate
+            transform: `translateX(-${xOffset}) scale(0.8) rotateY(15deg)`, // Slide left, shrink, rotate
             zIndex: 5,
             filter: 'blur(4px)', // Blur effect
         };
@@ -208,7 +225,7 @@ const ProjectCarousel: React.FC = () => {
         // Right Card
         return { 
             opacity: 0.6, 
-            transform: 'translateX(350px) scale(0.8) rotateY(-15deg)', // Slide right, shrink, rotate
+            transform: `translateX(${xOffset}) scale(0.8) rotateY(-15deg)`, // Slide right, shrink, rotate
             zIndex: 5,
             filter: 'blur(4px)', // Blur effect
         };

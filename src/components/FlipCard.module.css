@@ -237,3 +237,35 @@
     background-color: #f1fa8c;
     border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        /* Allow full width scaling if handled by carousel */
+        max-width: 300px;
+        /* Force smaller size */
+        height: 400px;
+    }
+
+    .imageContainer {
+        height: 180px;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.75rem;
+    }
+
+    .skillChip {
+        font-size: 0.6rem;
+    }
+
+    .iconButton {
+        width: 32px;
+        height: 32px;
+        padding: 4px;
+    }
+}
