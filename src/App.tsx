@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Background from './components/Background';
 import Header from './components/Header';
@@ -9,8 +8,10 @@ import QuestLog from './components/QuestLog';
 import Connect from './components/Connect';
 import HeroProfile from './components/HeroProfile';
 import LikeButton from './components/LikeButton';
+import VolatilitySolver from './components/VolatilitySolver';
 
 function App() {
+  const [isSolverOpen, setIsSolverOpen] = useState(false);
   React.useEffect(() => {
     // Scroll Reveal Observer
     const observer = new IntersectionObserver((entries) => {
@@ -62,7 +63,7 @@ function App() {
             </div>
 
             <div id="projects" className="reveal" style={{ width: '100%', scrollMarginTop: '100px' }}>
-                <ProjectCarousel />
+                <ProjectCarousel onLaunchSolver={() => setIsSolverOpen(true)} />
             </div>
         </section>
 
@@ -85,6 +86,8 @@ function App() {
       
       {/* Interaction */}
       <LikeButton />
+
+      {isSolverOpen && <VolatilitySolver onClose={() => setIsSolverOpen(false)} />}
     </div>
   );
 }

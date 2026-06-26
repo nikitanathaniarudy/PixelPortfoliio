@@ -18,8 +18,8 @@ const FlipCard: React.FC<FlipCardProps> = ({ imageSrc, title, description, skill
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
-    // Prevent flip if clicking external links
-    if ((e.target as HTMLElement).closest('a')) {
+    // Prevent flip if clicking external links or buttons
+    if ((e.target as HTMLElement).closest('a, button')) {
         e.stopPropagation();
         return;
     }

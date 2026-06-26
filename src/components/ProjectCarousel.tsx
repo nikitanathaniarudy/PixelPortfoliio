@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import FlipCard from './FlipCard';
 import styles from './ProjectCarousel.module.css';
 
-const projects = [
+const getProjects = (onLaunchSolver?: () => void) => [
   {
     id: 1,
     title: 'AegisPath',
@@ -154,11 +154,67 @@ const projects = [
             </ul>
         </>
     )
+  },
+  {
+    id: 6,
+    title: 'Implied Volatility & Yield Curve Solver',
+    description: 'A quantitative finance tool that fits the US Treasury yield curve using natural cubic spline interpolation and solves the Black-Scholes call option pricing model using a vectorized Newton-Raphson algorithm.',
+    imageSrc: '/assets/implied_volatility.png',
+    skills: ['TypeScript', 'Quantitative Finance', 'Numerical Analysis', 'Cubic Spline', 'Newton-Raphson', 'SVG Charting'],
+    githubUrl: 'https://github.com/nikitanathaniarudy/MAT264_Implied_Volatility_Solver',
+    details: (
+        <>
+            <p style={{marginBottom: '1rem'}}>
+                A quantitative tool designed for MAT264 (Numerical Analysis) to estimate option implied volatility and interpolate risk-free rates.
+            </p>
+            <ul style={{listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
+                <li>
+                    <strong style={{color: '#f1fa8c'}}>Natural Cubic Spline Yield Curve:</strong><br/>
+                    Fits 14 standard tenors of U.S. Treasury yields to a smooth C² continuous curve, avoiding Runge\'s phenomenon.
+                </li>
+                <li>
+                    <strong style={{color: '#f1fa8c'}}>Newton-Raphson IV Engine:</strong><br/>
+                    Reverse-engineers the Black-Scholes model using Newton-Raphson with safety floor protections (sigma ≥ 0.001) and divide-by-zero protections.
+                </li>
+                <li>
+                    <strong style={{color: '#f1fa8c'}}>Thomas Algorithm Solver:</strong><br/>
+                    Solves the spline\'s tridiagonal matrix system in O(N) linear time instead of general matrix inversion.
+                </li>
+            </ul>
+            <button 
+                style={{
+                    marginTop: '1.2rem',
+                    background: '#8be9fd',
+                    border: '3px solid #000',
+                    color: '#000',
+                    fontFamily: 'var(--font-pixel)',
+                    fontSize: '0.75rem',
+                    padding: '0.6rem',
+                    cursor: 'pointer',
+                    width: '100%',
+                    boxShadow: '3px 3px 0 #000',
+                    fontWeight: 'bold',
+                    transition: 'transform 0.1s, box-shadow 0.1s'
+                }}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onLaunchSolver?.();
+                }}
+            >
+                LAUNCH SIMULATOR 🚀
+            </button>
+        </>
+    )
   }
 ];
 
-const ProjectCarousel: React.FC = () => {
+interface ProjectCarouselProps {
+  onLaunchSolver?: () => void;
+}
+
+const ProjectCarousel: React.FC<ProjectCarouselProps> = ({ onLaunchSolver }) => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const projects = getProjects(onLaunchSolver);
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % projects.length);
